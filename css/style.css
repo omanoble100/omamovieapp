@@ -142,19 +142,16 @@ form > button {
     .movie-genre{
         display: none;
     }
+
+    .bgImage {
+        margin-top: 20px;
+    }
 }
 
 
 @media screen and (max-width:550px) {
     .navbar {
         flex-direction: column;
-    }
-
-    .movie img{
-        width: 200px;
-        height: 250px;
-        margin-top: 20px;
-        /* transition: all 0.2s ease-in; */
     }
     
 }
