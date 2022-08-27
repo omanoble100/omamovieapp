@@ -18,16 +18,16 @@
                     <p>Ent.<p></p>
             </div>
             <div class="movie-genre">
-                <button>Action</button>
-                <button>Trending</button>
-                <button>Viewed</button>
-                <button>New Movies</button>
+                <button onclick="originalMovies()">Original</button>
+                <button onclick="trending()">Trending</button>
+                <button onclick="topRated()">Top Rated</button>
+                <button onclick="upComing()">New Movies</button>
                 
             </div>
             <div class="search">
                 <form>
                     <input type="text" id="inputValue" placeholder="Enter movie title">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>
@@ -38,99 +38,19 @@
             <img src="img2.jpg" alt="">
         </div>
         <div class="movie-section" >
-            <h3>Action</h3>
-            <div class="movies">
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>The next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                </div>
+            <h3>Movies</h3>
+            <div class="movies" id="action-movies">
                 
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>Look both ways</p></div>
-                </div>
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>look both ways</p></div>
-                </div>
+                
+            </div>
+            <div class="trending">
+                
             </div>
 
-            <h3>Trending</h3>
-            <div class="movies">
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>The next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                </div>
-                
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>Look both ways</p></div>
-                </div>
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>look both ways</p></div>
-                </div>
-            </div>
             
-            <h3>Viewed</h3>
-            <div class="movies">
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>The next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                    <div class="overview">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium sint libero laudantium voluptates enim ipsum. Animi sequi dignissimos, esse minima iste similique totam nesciunt maxime reiciendis ipsum libero officia quibusdam.</p> -->
-                    </div>
-                </div>
-                <div class="movie">
-                    <img src="img.jpg" alt="">
-                    <div class="title"><p>the next 365 days</p></div>
-                </div>
-                
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>Look both ways</p></div>
-                </div>
-                <div class="movie">
-                    <img src="img2.jpg" alt="">
-                    <div class="title"><p>The next 365 days</p></div>
-                </div>
-            </div>
         </div>
     </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@600;700&display=swap');
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body{
     background: linear-gradient(70deg, rgb(15, 6, 12), rgba(53, 4, 45, 0.996));
     /* color: white; */
     font-family: 'DynaPuff', sans-serif;
+    background-size: cover;
 }
 
 .main {
-    margin: 0 30px;
+    margin: 50px 30px;
 }
 .navbar{
     display: flex;
@@ -20,7 +27,6 @@ body{
     width: 200px;
     display: flex;
     align-items: center;
-    /* justify-content: ; */
     font-size: 30px;
     color: white;
 }
@@ -33,7 +39,7 @@ body{
     cursor: pointer;
     border: none;
     border-radius: 7px;
-    transition: all ease-out 0.5s;
+    transition: 0.5s all ease;
 }
 
 .movie-genre button:hover{
@@ -49,7 +55,7 @@ body{
 .bgImage {
     width: 90%;
     height: 10%;
-    display: block;
+    display: none;
     margin: 0 auto;
 }
 
@@ -63,14 +69,6 @@ body{
     box-shadow: 0px 7px 15px 10px  black;
 }
 
-.title {
-    color: rgba(53, 4, 45, 0.996);
-    /* letter-spacing: 3px; */
-    font-size: 20px;
-    margin-top: -10px;
-    text-align: center;
-    text-transform: uppercase;
-}
 
 form {
     display: flex;
@@ -83,7 +81,7 @@ form input{
     border-radius: 5px;
     width: 250px;
     background-color: rgba(53, 4, 45, 0.996);
-
+    
 }
 
 input:focus{
@@ -106,11 +104,18 @@ form > button {
     cursor: pointer;
 }
 
-.movies {
+.movieView{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0;
+    /* width: 90%; */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.movies {
+    cursor: pointer;
+
     /* z-index: 4; */
 }
 
@@ -120,30 +125,71 @@ form > button {
     font-size: 30px;
 }
 
+
 .movie {
-    background-color: white;
-    margin: 20px 7px;
-    transition: all 0.3s ease-in;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.996);
+    margin: 20px auto;
+    transition: 0.7s all ease;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.movie img{
+.movie>img{
     width: 250px;
     height: 300px;
-    
 }
 
 .movie:hover {
     transform: scale(1.1);
-    box-shadow: 10px 10px 15px 10px black;
+    box-shadow: 8px 10px 15px 10px black;
+}
+
+.title {
+    color: rgba(49, 18, 49, 0.996);
+    /* letter-spacing: 3px; */
+    font-size: 18px;
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    
 }
 
 
+.overview p {
+    color: white;
+    margin-top: 20px ;
+    padding: 30px;
+    display:block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    transition: .5s;
+}
+
+
+
 @media screen and (max-width:950px) {
+    .navbar{
+        flex-direction: column;
+        width: 100%;
+    }
+
     .movie-genre{
-        display: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        
     }
 
     .bgImage {
+        margin-top: 20px;
+    }
+    form{
         margin-top: 20px;
     }
 }
@@ -153,5 +199,19 @@ form > button {
     .navbar {
         flex-direction: column;
     }
-    
+    .movie{
+        width: 150px;
+    }
+    .movie>img{
+        width: 150px;
+        height: 200px;
+    }
+    .title {
+        font-size: 14px;
+    }
+    .movie-genre button{
+        font-size: 10px;
+        padding: 5px;
+        margin: 0 5px;
+    }
 }
