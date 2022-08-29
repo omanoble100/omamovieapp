@@ -53,21 +53,22 @@ body{
     box-shadow: rgba(93, 50, 77, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(155, 11, 136, 0.35) 0px -2px 6px 0px inset;
 }
 .bgImage {
-    width: 90%;
-    height: 10%;
+    width: 100%;
     display: none;
+    /* margin: 0 50px; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    transition: all .5s ease-in ;
+    padding: 15px 290px;
+}
+
+iframe {
+    align-content: center;
+    justify-items: center;
     margin: 0 auto;
 }
 
-.bgImage img {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    justify-content: center;
-    height: 500px;
-    /* z-index: -5; */
-    box-shadow: 0px 7px 15px 10px  black;
-}
 
 
 form {
@@ -163,7 +164,7 @@ form > button {
 .overview p {
     color: white;
     margin-top: 20px ;
-    padding: 30px;
+    padding: 90px;
     display:block;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
@@ -187,10 +188,15 @@ form > button {
     }
 
     .bgImage {
-        margin-top: 20px;
+        padding: 0 70px;
     }
     form{
         margin-top: 20px;
+    }
+
+    iframe {
+        width: 450px;
+        height:  300px;
     }
 }
 
@@ -213,5 +219,16 @@ form > button {
         font-size: 10px;
         padding: 5px;
         margin: 0 5px;
+    }
+
+    iframe {
+        
+        width: 270px;
+        height:  200px;
+      
+    }
+
+    .bgImage {
+        padding: 0 30px;
     }
 }

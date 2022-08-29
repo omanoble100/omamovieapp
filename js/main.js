@@ -1,5 +1,6 @@
 // API KEY: 7149f215ca0b59cfae4a48e016e91cf5
 
+// 'https://api.themoviedb.org/3/search/movie?api_key=7149f215ca0b59cfae4a48e016e91cf5&query=' 
 
 
 // Declaring Variables
@@ -35,6 +36,7 @@ const imageURL = 'https://image.tmdb.org/t/p/w500';
     })
   }
 
+ 
 // Display to the DOM
 
 const displayOutput = (movies) => {
@@ -47,7 +49,7 @@ const displayOutput = (movies) => {
 }
 
 
-// Dynamic funtion to feach api link with two parameters (url, value)
+// Dynamic funtion to feach api link with two parameters (url)
 const fetchApiLink = (url) => {
     fetch(url)
     .then(response => response.json())
@@ -55,7 +57,7 @@ const fetchApiLink = (url) => {
        
         storeMovies.innerHTML = ''
         const movies = data.results;
-        console.log(url)
+        console.log(url) 
         console.log(data)
         const movieBlock = displayOutput(movies);
 
@@ -101,31 +103,57 @@ const upComing = () => {
     fetchApiLink(url)
 }
 
-document.onclick = (event) => {
-
-    const target = event.target;
-    //  console.log(event)
-    if(target.tagName.toLowerCase() === 'img' || target.tagName.toLowerCase() === 'div' || target.tagName.toLowerCase() === 'p'){
-        console.log('Got You')
-    }
+const displayMovieTrailer = (videoKey) => {
+    const iframe = document.createElement('iframe');
+    iframe.src = videoKey;
+    iframe.width = 700;
+    iframe.height = 350;
+    iframe.allowFullscreen = true;
+    
+    return iframe
 }
 
+// On click of a an Img/div/p - display the info of the movie with trailer
+document.onclick = (event) => {
+    bgImage.innerHTML = ''
 
-
-
-
-
-
-
-
-
-
-
-
-                // <div class="movie">
-                //     <img src="img.jpg" alt="">
-                //     <div class="title"><p></p></div>
-                //     <div class="overview"></div>
+    console.log(event)
+    const target = event.target;
+    
+    if(target.tagName.toLowerCase() === 'img' ){
+        const movieId = target.dataset.movieId;
+        const path = `/${movieId}/videos`
+        const endpoint = `https://api.themoviedb.org/3/movie/${path}?api_key=7149f215ca0b59cfae4a48e016e91cf5&language=en-US&page=1`
         
-                // </div>
+        let youtubeLink = 'https://www.youtube.com/embed/'
+    
+        fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+            
+        if(data.results){
+         const videoKey = data.results;
+            //  let url=''
+             console.log(videoKey)
+            // Looping through the videos and getting the one with the name:Official Trailer
+                for(video of videoKey){
+                    if(video.name === 'Official Trailer'){
+                        youtubeLink += video.key
+                        //   console.log(youtubeLink)
+                    } else if(!video === ''){
+                        alert('Sorry! no trailer here.')
+                    }
+                }
+               // console.log(url)
+            }
+            storeMovies.innerHTML = ''
+            const iframeContainer = displayMovieTrailer(youtubeLink);
+            bgImage.style.display = 'block'
+            bgImage.appendChild(iframeContainer)
+             
+        })
+        .catch((err) => alert("Sorry!No trailer here")); 
+        
+    }
+}
 
