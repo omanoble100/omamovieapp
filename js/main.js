@@ -57,8 +57,7 @@ const fetchApiLink = (url) => {
        
         storeMovies.innerHTML = ''
         const movies = data.results;
-        console.log(url) 
-        console.log(data)
+      
         const movieBlock = displayOutput(movies);
 
         storeMovies.appendChild(movieBlock);
@@ -116,44 +115,50 @@ const displayMovieTrailer = (videoKey) => {
 // On click of a an Img/div/p - display the info of the movie with trailer
 document.onclick = (event) => {
     bgImage.innerHTML = ''
-
-    console.log(event)
     const target = event.target;
     
     if(target.tagName.toLowerCase() === 'img' ){
         const movieId = target.dataset.movieId;
         const path = `/${movieId}/videos`
         const endpoint = `https://api.themoviedb.org/3/movie/${path}?api_key=7149f215ca0b59cfae4a48e016e91cf5&language=en-US&page=1`
-        
         let youtubeLink = 'https://www.youtube.com/embed/'
+      
     
         fetch(endpoint)
         .then(res => res.json())
         .then(data => {
-            
+            console.log(data)
         if(data.results){
          const videoKey = data.results;
-            //  let url=''
-             console.log(videoKey)
+        //  console.log(data.results)
             // Looping through the videos and getting the one with the name:Official Trailer
-                for(video of videoKey){
-                    if(video.name === 'Official Trailer'){
-                        youtubeLink += video.key
-                        //   console.log(youtubeLink)
-                    } else if(!video === ''){
-                        alert('Sorry! no trailer here.')
-                    }
-                }
-               // console.log(url)
+            if(videoKey.length === 0){
+                // console.log(videoKey)
+                alert('The movie trailer is not available')
+                return storeMovies
+            } else 
+           { const findVideo = videoKey.find(video => video.name === 'Official Trailer' || video.name === 'Official Teaser' || video.name === 'Trailer' || video.name === 'Teaser')
+                        if(findVideo){
+                            youtubeLink += findVideo.key 
+                           
+                        }else {
+                            youtubeLink +=videoKey[0].key 
+                        }      
+        }
+            
+               
+
+            } else {
+                alert("The movie trailer is not available")
+                return storeMovies
             }
             storeMovies.innerHTML = ''
             const iframeContainer = displayMovieTrailer(youtubeLink);
-            bgImage.style.display = 'block'
-            bgImage.appendChild(iframeContainer)
+            // bgImage.style.display = 'block'
+           storeMovies.appendChild(iframeContainer)
              
         })
-        .catch((err) => alert("Sorry!No trailer here")); 
-        
+        .catch((err) => alert("The movie trailer is not available"));
     }
 }
 
