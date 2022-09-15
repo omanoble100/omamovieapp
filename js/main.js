@@ -37,7 +37,7 @@ const imageURL = 'https://image.tmdb.org/t/p/w500';
   }
 
  
-// Display to the DOM
+// Funtion that Displays the format of images to the DOM
 
 const displayOutput = (movies) => {
     const movieImgDiv= document.createElement('div');
@@ -49,7 +49,7 @@ const displayOutput = (movies) => {
 }
 
 
-// Dynamic funtion to feach api link with two parameters (url)
+// Dynamic funtion to feach api link with parameter (url)
 const fetchApiLink = (url) => {
     fetch(url)
     .then(response => response.json())
@@ -79,29 +79,30 @@ searchButton.onclick = (e) => {
     fetchApiLink(link)
 }
 
-// Displays the trending videos
+// Funtion that Displays the trending videos
 const trending = () => {
     let trendingUrl = 'https://api.themoviedb.org/3/trending/all/day?api_key=7149f215ca0b59cfae4a48e016e91cf5';
     fetchApiLink(trendingUrl)
 }
 
 trending()
-// Displays the Original videos
+// Funtion that Displays the Original/Series videos
 const originalMovies = () => {
     let url = 'https://api.themoviedb.org/3/discover/tv?api_key=7149f215ca0b59cfae4a48e016e91cf5&with_networks=213';
     fetchApiLink(url)
 }
-// Displays the toprated videos
+// Funtion that Displays the toprated videos
 const topRated = () => {
     let url = 'https://api.themoviedb.org/3/movie/top_rated?api_key=7149f215ca0b59cfae4a48e016e91cf5&language=en-US&page=1';
     fetchApiLink(url)
 }
-
+// Funtion that Displays the upcoming movies
 const upComing = () => {
     let url = 'https://api.themoviedb.org/3/movie/upcoming?api_key=7149f215ca0b59cfae4a48e016e91cf5&language=en-US&page=1';
     fetchApiLink(url)
 }
 
+// iframe for the Video display
 const displayMovieTrailer = (videoKey) => {
     const iframe = document.createElement('iframe');
     iframe.src = videoKey;
@@ -114,6 +115,7 @@ const displayMovieTrailer = (videoKey) => {
 
 // On click of a an Img/div/p - display the info of the movie with trailer
 document.onclick = (event) => {
+    // Clears out the page
     bgImage.innerHTML = ''
     const target = event.target;
     
@@ -137,7 +139,7 @@ document.onclick = (event) => {
                 alert('The movie trailer is not available')
                 return storeMovies
             } else 
-           { const findVideo = videoKey.find(video => video.name === 'Official Trailer' || video.name === 'Official Teaser' || video.name === 'Trailer' || video.name === 'Teaser')
+           { const findVideo = videoKey.find(video => video.name.includes('Official Trailer') || video.name.includes('Trailer') || video.name.includes('Teaser'))
                         if(findVideo){
                             youtubeLink += findVideo.key 
                            
